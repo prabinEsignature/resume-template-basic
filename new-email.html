@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #MessageViewBody a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      p {
+        line-height: inherit;
+      }
+
+      .desktop_hide,
+      .desktop_hide table {
+        display: none;
+        max-height: 0px;
+        overflow: hidden;
+      }
+
+      .image_block img + div {
+        display: none;
+      }
+
+      /* direction */
+      .dir-ltr {
+        direction: ltr;
+      }
+
+      /* widths */
+      .w-100,
+      .w-full {
+        width: 100%;
+      }
+
+      .w-50,
+      .w-half {
+        width: 50%;
+      }
+
+      /* border */
+      .border-0 {
+        border: 0;
+      }
+      .rounded-0 {
+        border-radius: 0;
+      }
+      .rounded-full {
+        border-radius: 100%;
+      }
+
+      /* leter spacing */
+      .ls-0 {
+        letter-spacing: 0;
+      }
+      .ls-normal {
+        letter-spacing: normal;
+      }
+
+      /* heights & widths */
+      .h-auto {
+        height: auto;
+      }
+      .w-auto {
+        width: auto;
+      }
+      .h-16 {
+        height: 16px;
+      }
+      .w-16 {
+        width: 16px;
+      }
+
+      /* line height */
+      .lh-120 {
+        line-height: 120px;
+      }
+      .lh-120p {
+        line-height: 120%;
+      }
+      .lh-1 {
+        line-height: 1px;
+      }
+      .lh-10 {
+        line-height: 10px;
+      }
+
+      /* word break */
+      .break-word {
+        word-break: break-word;
+      }
+
+      /* font sizes */
+      .fs-1 {
+        font-size: 1px;
+      }
+      .fs-13 {
+        font-size: 13px;
+      }
+      .fs-14 {
+        font-size: 14px;
+      }
+      .fs-15 {
+        font-size: 15px;
+      }
+      .fs-24 {
+        font-size: 24px;
+      }
+
+      /* margins & padding */
+      .m-0 {
+        margin: 0;
+      }
+      .mt-0 {
+        margin-top: 0;
+      }
+      .mb-0 {
+        margin-bottom: 0;
+      }
+      .ms-0 {
+        margin-left: 0;
+      }
+      .me-0 {
+        margin-right: 0;
+      }
+      .p-0 {
+        padding: 0;
+      }
+      .ps-0 {
+        padding-left: 0;
+      }
+      .pe-0 {
+        padding-right: 0;
+      }
+      .ps-1 {
+        padding-left: 5px;
+      }
+      .pe-1 {
+        padding-right: 5px;
+      }
+      .pt-1 {
+        padding-top: 5px;
+      }
+      .pb-1 {
+        padding-bottom: 5px;
+      }
+      .ps-2 {
+        padding-left: 10px;
+      }
+      .pe-2 {
+        padding-right: 10px;
+      }
+      .pt-2 {
+        padding-top: 10px;
+      }
+      .pb-2 {
+        padding-bottom: 10px;
+      }
+      .ps-3 {
+        padding-left: 15px;
+      }
+      .pe-3 {
+        padding-right: 15px;
+      }
+      .pt-3 {
+        padding-top: 15px;
+      }
+      .pb-3 {
+        padding-bottom: 15px;
+      }
+      .ps-4 {
+        padding-left: 20px;
+      }
+      .pe-4 {
+        padding-right: 20px;
+      }
+      .pt-4 {
+        padding-top: 20px;
+      }
+      .pb-4 {
+        padding-bottom: 20px;
+      }
+      .my-0 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .mx-0 {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      .mx-auto {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      /* display */
+      .d-block {
+        display: block;
+      }
+      .d-inline {
+        display: inline;
+      }
+      .d-inline-block {
+        display: inline-block;
+      }
+
+      /* vertical align */
+      .v-align-top {
+        vertical-align: top;
+      }
+      .v-align-middle {
+        vertical-align: middle;
+      }
+      .v-align-bottom {
+        vertical-align: bottom;
+      }
+
+      /* text utils */
+      .text-white {
+        color: #ffffff;
+      }
+      .text-black {
+        color: #000000;
+      }
+      .text-argen-blue {
+        color: #47a9ff;
+      }
+      .text-whitesmoke {
+        color: #f5f5f5;
+      }
+      .text-indigo {
+        color: #22405d;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-end {
+        text-align: right;
+      }
+      .text-start {
+        text-align: left;
+      }
+
+      /* table layout */
+      .table-layout-fixed {
+        table-layout: fixed;
+      }
+
+      /* background utils */
+      .bg-white {
+        background: #ffffff;
+      }
+      .bg-gainsboro {
+        background: #dddddd;
+      }
+      .bg-transparent {
+        background: transparent;
+      }
+      .bg-indigo {
+        background: #22405d;
+      }
+
+      /* table */
+      .border-collapse {
+        border-collapse: collapse;
+      }
+
+      /* font inherit */
+      .font-inherit {
+        font-family: inherit;
+      }
+
+      /* font weights */
+      .font-thin {
+        font-weight: 100;
+      }
+      .font-extralight {
+        font-weight: 200;
+      }
+      .font-light {
+        font-weight: 300;
+      }
+      .font-normal {
+        font-weight: 400;
+      }
+      .font-medium {
+        font-weight: 500;
+      }
+      .font-semibold {
+        font-weight: 600;
+      }
+      .font-bold {
+        font-weight: 700;
+      }
+      .font-extrabold {
+        font-weight: 800;
+      }
+      .font-black {
+        font-weight: 900;
+      }
+
+      /* positioning */
+      .relative {
+        position: relative;
+      }
+      .absolute {
+        position: absolute;
+      }
+
+      /* border styles */
+      .border-w-0 {
+        border-width: 0px;
+      }
+      .border-w-1 {
+        border-width: 1px;
+      }
+      .border-w-2 {
+        border-width: 2px;
+      }
+      .border-white {
+        border-color: #ffffff;
+      }
+      .border-solid {
+        border-style: solid;
+      }
+      .border-gainsboro {
+        border-color: #dddddd;
+      }
+      .border-top {
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+      }
+      .border-left {
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+      }
+      .border-right {
+        border-top: 0;
+        border-left: 0;
+        border-bottom: 0;
+      }
+      .border-bottom {
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      @media (max-width: 768px) {
+        .desktop_hide table.icons-inner {
+          display: inline-block !important;
+        }
+
+        .icons-inner {
+          text-align: center;
+        }
+
+        .icons-inner td {
+          margin: 0 auto;
+        }
+
+        .mobile_hide {
+          display: none;
+        }
+
+        .row-content {
+          width: 100% !important;
+        }
+
+        .stack .column {
+          width: 100%;
+          display: block;
+        }
+
+        .mobile_hide {
+          min-height: 0;
+          max-height: 0;
+          max-width: 0;
+          overflow: hidden;
+          font-size: 0px;
+        }
+
+        .desktop_hide,
+        .desktop_hide table {
+          display: table !important;
+          max-height: none !important;
+        }
+      }
+
+      .tbl-resume-wrapper {
+        width: 800px;
+        text-align: left;
+      }
+      .resume-col-l {
+        width: 66.66666666666667%;
+      }
+      .resume-col-r {
+        width: 33.333333333333336%;
+      }
+
+      .resume-l-block-1 {
+        padding-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      cellpadding="0"
+      cellspacing="0"
+      class="tbl-resume-wrapper stack border-0 bg-gainsboro text-black rounded-0 mx-auto my-0"
+    >
+      <tbody>
+        <tr class="tbl-resume-row">
+          <td
+            class="resume-col-l font-normal text-start bg-white border-0 v-align-top"
+          >
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="heading_block block-2 w-100 resume-l-block-1"
+            >
+              <tr>
+                <td class="pad text-center w-100 ps-2 pe-2">
+                  <h1
+                    class="m-0 font-bold text-start my-0 text-indigo dir-ltr fs-24 ls-normal lh-120p"
+                  >
+                    ANIL ADHIKARI
+                  </h1>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="image_block block-3 w-full"
+            >
+              <tr>
+                <td class="pad w-full pt-2 pb-1"></td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-4 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-2 pe-2">
+                  <div
+                    class="text-argen-blue dir-ltr fs-15 font-bold ls-0 lh-120p text-start"
+                  >
+                    <p class="m-0">Nepal</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="icons_block block-5 w-100"
+            >
+              <tr>
+                <td
+                  class="pad v-align-middle text-indigo font-inherit fs-14 font-normal ps-1 pe-1"
+                >
+                  <table cellpadding="0" cellspacing="0" class="w-full">
+                    <tr>
+                      <td
+                        class="alignment v-align-middle d-inline-block ps-0 pe-0"
+                      >
+                        <table
+                          cellpadding="0"
+                          cellspacing="0"
+                          class="icons-inner"
+                        >
+                          <tr>
+                            <td
+                              class="v-align-middle text-center pt-1 pb-1 ps-1 pe-1"
+                            >
+                              <img
+                                class="icon h-auto d-block my-0 mx-auto border-0 w-16"
+                                src="images/icons8-phone-50.png"
+                              />
+                            </td>
+                            <td
+                              class="fs-14 font-normal text-indigo v-align-middle"
+                            >
+                              +1-978-009-8675
+                            </td>
+                          </tr>
+                        </table>
+                        <table
+                          cellpadding="0"
+                          cellspacing="0"
+                          class="icons-inner d-inline-block ps-0 pe-0"
+                          style="margin-right: -4px"
+                        >
+                          <tr>
+                            <td
+                              class="v-align-middle text-center pt-1 pb-1 ps-1 pe-1"
+                            >
+                              <img
+                                class="icon h-auto d-block my-0 mx-auto border-0 w-16"
+                                height="auto"
+                                src="images/icons8-mail-50.png"
+                              />
+                            </td>
+                            <td
+                              class="fs-14 text-indigo font-normal v-align-middle"
+                            >
+                              adhikari.anil@gmail.com
+                            </td>
+                          </tr>
+                        </table>
+                        <table
+                          cellpadding="0"
+                          cellspacing="0"
+                          class="icons-inner d-inline-block ps-0 pe-0"
+                          style="margin-right: -4px"
+                        >
+                          <tr>
+                            <td
+                              class="v-align-middle text-center pt-1 pb-1 ps-1 pe-1"
+                            >
+                              <img
+                                class="icon h-auto d-block my-0 mx-auto border-0 w-16"
+                                src="images/icons8-link-50.png"
+                              />
+                            </td>
+                            <td
+                              class="fs-14 font-normal text-indigo v-align-middle"
+                            >
+                              https://facebook.com/anil.adhikari
+                            </td>
+                          </tr>
+                        </table>
+                        <table
+                          cellpadding="0"
+                          cellspacing="0"
+                          class="icons-inner d-inline-block ps-0 pe-0"
+                          style="margin-right: -4px"
+                        >
+                          <tr>
+                            <td
+                              class="v-align-middle text-center pb-1 pt-1 ps-1 pe-1"
+                            >
+                              <img
+                                class="icon h-auto d-block my-0 mx-auto border-0 w-16"
+                                src="images/icons8-marker-50.png"
+                              />
+                            </td>
+                            <td
+                              class="fs-14 font-normal text-indigo v-align-middle"
+                            >
+                              Naubise - 08, Dhading
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-6 break-word w-100"
+            >
+              <tr>
+                <td class="pad pb-1 ps-2 pe-2 pt-2">
+                  <div
+                    class="text-indigo dir-ltr fs-15 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">
+                      <strong>SUMMARY</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-7 w-100"
+            >
+              <tr>
+                <td class="pad ps-2 pe-2">
+                  <div class="alignment">
+                    <table cellpadding="0" cellspacing="0" class="w-full">
+                      <tr>
+                        <td
+                          class="divider_inner fs-1 lh-1 border-top border-w-1 border-solid border-gainsboro"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="10"
+              cellspacing="0"
+              class="paragraph_block block-8 break-word w-full"
+            >
+              <tr>
+                <td class="pad">
+                  <div
+                    class="text-indigo dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">
+                      Full Stack Developer with 6+ years of hands-on experience
+                      designing, developing, and implementing applications and
+                      solutions using a range of technologies and programming
+                      languages. Seeking to leverage broad development
+                      experience and hands-on technical expertise in a
+                      challenging role as a Full-stack Developer.
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-9 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-2 pe-2 pt-2">
+                  <div
+                    class="text-indigo dir-ltr fs-15 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">
+                      <strong>EXPERIENCE</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-10 w-full"
+            >
+              <tr>
+                <td class="pad ps-2 pe-2">
+                  <div class="alignment">
+                    <table
+                      class="border-0 w-full"
+                      cellpadding="0"
+                      cellspacing="0"
+                    >
+                      <tr>
+                        <td
+                          class="divider_inner fs-1 lh-1 border-gainsboro border-solid border-w-1 border-top"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- start of experience block item -->
+            <div class="resume-block-experience">
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="paragraph_block block-11 border-0 break-word w-full"
+              >
+                <tr>
+                  <td class="pad ps-2 pe-2 pt-2">
+                    <div
+                      class="text-indigo dir-ltr fs-15 font-normal ls-0 lh-120p"
+                    >
+                      <p class="m-0">
+                        <strong>Full Stack Developer (2007 - 2021)</strong>
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="paragraph_block block-12 border-0 w-full break-word"
+              >
+                <tr>
+                  <td class="pad ps-2 pe-2 pt-1" style="padding-bottom: 3px">
+                    <div
+                      class="text-argen-blue dir-ltr fs-15 font-normal ls-0 lh-120p"
+                    >
+                      <p class="m-0">
+                        <strong
+                          >ABC Information Solution Private Limited</strong
+                        >
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="paragraph_block block-13 border-0 break-word w-full"
+              >
+                <tr>
+                  <td class="pad ps-2 pe-2">
+                    <div
+                      class="text-indigo dir-ltr fs-13 font-normal ls-0 lh-120p"
+                    >
+                      <p class="m-0">
+                        <em>Texas, United States</em>
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="paragraph_block block-14 border-0 break-word w-full"
+              >
+                <tr>
+                  <td class="pad pb-1 ps-2 pe-2 pt-1">
+                    <div class="text-indigo dir-ltr fs-14 ls-0 lh-120p">
+                      <p class="m-0">
+                        Develop 10+ full-stack web applications to analyze and
+                        process data for different clients. 
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="list_block block-15 border-0 w-full break-word"
+                id="list-r0c0m14"
+              >
+                <tr>
+                  <td class="pad pb-1 pe-2" style="padding-left: 7px">
+                    <div class="levelOne ms-0">
+                      <ul
+                        class="leftList my-0 p-0 text-indigo dir-ltr fs-14 font-normal ls-0 lh-120p ps-4"
+                        start="1"
+                        style="list-style-type: disc"
+                      >
+                        <li class="mb-0">Ensure applications security</li>
+                        <li class="mb-0">
+                          Ability to interact with multiple APIs and databases.
+                        </li>
+                        <li class="mb-0">Multiple users based platforms.</li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!-- end of experience block item  -->
+
+            <!-- start of experience block item -->
+            <div class="resume-block-experience">
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="paragraph_block block-11 border-0 break-word w-full"
+              >
+                <tr>
+                  <td class="pad ps-2 pe-2 pt-2">
+                    <div
+                      class="text-indigo dir-ltr fs-15 font-normal ls-0 lh-120p"
+                    >
+                      <p class="m-0">
+                        <strong>Full Stack Developer (2007 - 2021)</strong>
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="paragraph_block block-12 border-0 w-full break-word"
+              >
+                <tr>
+                  <td class="pad ps-2 pe-2 pt-1" style="padding-bottom: 3px">
+                    <div
+                      class="text-argen-blue dir-ltr fs-15 font-normal ls-0 lh-120p"
+                    >
+                      <p class="m-0">
+                        <strong
+                          >ABC Information Solution Private Limited</strong
+                        >
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="paragraph_block block-13 border-0 break-word w-full"
+              >
+                <tr>
+                  <td class="pad ps-2 pe-2">
+                    <div
+                      class="text-indigo dir-ltr fs-13 font-normal ls-0 lh-120p"
+                    >
+                      <p class="m-0">
+                        <em>Texas, United States</em>
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="paragraph_block block-14 border-0 break-word w-full"
+              >
+                <tr>
+                  <td class="pad pb-1 ps-2 pe-2 pt-1">
+                    <div class="text-indigo dir-ltr fs-14 ls-0 lh-120p">
+                      <p class="m-0">
+                        Develop 10+ full-stack web applications to analyze and
+                        process data for different clients. 
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                class="list_block block-15 border-0 w-full break-word"
+                id="list-r0c0m14"
+              >
+                <tr>
+                  <td class="pad pb-1 pe-2" style="padding-left: 7px">
+                    <div class="levelOne ms-0">
+                      <ul
+                        class="leftList my-0 p-0 text-indigo dir-ltr fs-14 font-normal ls-0 lh-120p ps-4"
+                        start="1"
+                        style="list-style-type: disc"
+                      >
+                        <li class="mb-0">Ensure applications security</li>
+                        <li class="mb-0">
+                          Ability to interact with multiple APIs and databases.
+                        </li>
+                        <li class="mb-0">Multiple users based platforms.</li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!-- end of experience block item -->
+
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-21 border-0 break-word w-full"
+            >
+              <tr>
+                <td class="pad pb-1 ps-2 pe-2 pt-2">
+                  <div
+                    class="text-indigo dir-ltr fs-15 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">
+                      <strong>LANGUAGES</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-22 border-0 w-full"
+            >
+              <tr>
+                <td class="pad" style="padding-left: 10px; padding-right: 10px">
+                  <div class="alignment">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      class="border-0 w-100"
+                    >
+                      <tr>
+                        <td
+                          class="divider_inner lh-1 fs-1 border-gainsboro border-solid border-w-1 border-top"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="table_block block-23 border-0 w-full"
+            >
+              <tr>
+                <td class="pad">
+                  <table
+                    class="w-full dir-ltr border-collapse table-layout-fixed dir-ltr bg-transparent font-normal text-indigo ls-0"
+                  >
+                    <tbody class="v-align-top fs-14 lh-120p">
+                      <tr>
+                        <td
+                          class="pt-2 ps-2 pe-2 break-word border-solid border-white border-w-0 break-word w-half"
+                        >
+                          English (Native)
+                        </td>
+                        <td
+                          class="pt-2 ps-2 pe-2 break-word border-solid border-white border-w-0 w-half"
+                        >
+                          Spanish (Proficient)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="pt-2 ps-2 pe-2 break-word border-solid border-white border-w-0 w-half"
+                        >
+                          Italian  (Intermediate)
+                        </td>
+                        <td
+                          class="pt-2 ps-2 pe-2 break-word border-solid border-white border-w-0 w-half"
+                        >
+                          Hindi (Beginner)
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-24 border-0 w-full break-word pt-2"
+            >
+              <tr>
+                <td class="pad pt-1 ps-2 pe-2 pb-2">
+                  <div
+                    class="text-indigo dir-ltr fs-15 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">
+                      <strong>MORE PERSONAL DETAILS</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-25 border-0 w-full"
+            >
+              <tr>
+                <td class="pad pb-1 ps-2 pe-2">
+                  <div class="alignment">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      class="border-0 w-full"
+                    >
+                      <tr>
+                        <td
+                          class="divider_inner fs-1 lh-1 border-top border-solid border-gainsboro border-w-1"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-26 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad ps-2 pe-2 pt-1">
+                  <div class="text-indigo dir-ltr fs-14 font-bold ls-0 lh-120p">
+                    <p class="m-0">Father Name</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-27 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-2 pe-2 pt-1">
+                  <div
+                    class="text-indigo dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">Tilak Bahadur Adhikari</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-26 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad ps-2 pe-2 pt-1">
+                  <div class="text-indigo dir-ltr fs-14 font-bold ls-0 lh-120p">
+                    <p class="m-0">Date of Birth</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-27 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-2 pe-2 pt-1">
+                  <div
+                    class="text-indigo dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">27 April 2000</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-26 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad ps-2 pe-2 pt-1">
+                  <div class="text-indigo dir-ltr fs-14 font-bold ls-0 lh-120p">
+                    <p class="m-0">Nationality</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-27 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-2 pe-2 pt-1">
+                  <div
+                    class="text-indigo dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">Nepal</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-26 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad ps-2 pe-2 pt-1">
+                  <div class="text-indigo dir-ltr fs-14 font-bold ls-0 lh-120p">
+                    <p class="m-0">Religion</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-27 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-2 pe-2 pt-1">
+                  <div
+                    class="text-indigo dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">Hindu</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <div
+              class="spacer_block block-34"
+              style="height: 15px; line-height: 15px; font-size: 1px"
+            >
+               
+            </div>
+          </td>
+          <td
+            class="resume-col-r column column-2 font-normal bg-indigo pb-1 pt-1 v-align-top border-0"
+          >
+            <div
+              class="spacer_block block-1 fs-1 lh-120 relative"
+              style="height: 120px"
+            >
+               
+              <div class="alignment lh-10">
+                <div
+                  class="absolute rounded-full"
+                  style="
+                    max-width: 109px;
+                    top: 18px;
+                    right: 217px;
+                    width: 100px;
+                    height: 100px;
+                    overflow: hidden;
+                    border: 2px solid #e2e2e2;
+                  "
+                >
+                  <img
+                    src="images/pexels-stefanstefancik-91227.jpg"
+                    class="h-auto d-block border-0"
+                    style="width: 109px"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- start of skills section -->
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-2 border-0 w-auto break-word"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3 pt-4">
+                  <div
+                    class="text-white dir-ltr fs-15 lh-120p font-normal ls-0 text-start"
+                  >
+                    <p class="m-0">
+                      <strong>SKILLS</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-3 w-100 border-0"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3">
+                  <div class="alignment">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      class="border-0 w-full"
+                    >
+                      <tr>
+                        <td
+                          class="divider_inner fs-1 border-top border-w-1 border-solid border-gainsboro lh-1"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-4 border-0 w-full break-word"
+            >
+              <tr>
+                <td
+                  class="pad pb-1 ps-3 pe-3 pt-1 text-whitesmoke dir-ltr fs-14 ls-0 lh-120p"
+                >
+                  <div>
+                    <p class="m-0">MOE GROUPS - Recreational activities</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-4 border-0 w-full break-word"
+            >
+              <tr>
+                <td
+                  class="pad pb-1 ps-3 pe-3 pt-1 text-whitesmoke dir-ltr fs-14 ls-0 lh-120p"
+                >
+                  <div>
+                    <p class="m-0">Communication - CPE</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-4 border-0 w-full break-word"
+            >
+              <tr>
+                <td
+                  class="pad pb-1 ps-3 pe-3 pt-1 text-whitesmoke dir-ltr fs-14 ls-0 lh-120p"
+                >
+                  <div>
+                    <p class="m-0">Certification - Appropriate Curriculum</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <!-- end of skills section -->
+
+            <!-- start of education section -->
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-2 border-0 w-auto break-word"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3 pt-4">
+                  <div
+                    class="text-white dir-ltr fs-15 lh-120p font-normal ls-0 text-start"
+                  >
+                    <p class="m-0">
+                      <strong>EDUCATION</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-3 w-100 border-0"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3">
+                  <div class="alignment">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      class="border-0 w-full"
+                    >
+                      <tr>
+                        <td
+                          class="divider_inner fs-1 border-top border-w-1 border-solid border-gainsboro lh-1"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <!-- start of education item -->
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-9 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3 pt-2">
+                  <div
+                    class="text-white dir-ltr fs-15 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">
+                      <strong>High School Diploma</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-10 border-0 break-word w-full"
+            >
+              <tr>
+                <td class="pad pb-1 ps-3 pe-3 pt-1">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">Billboard High School</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-10 border-0 break-word w-full"
+            >
+              <tr>
+                <td class="pad pb-1 ps-3 pe-3 pt-1">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">08/2067 - 06/2070</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <!-- end of education item -->
+            <!-- start of the education item -->
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-9 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3 pt-2">
+                  <div
+                    class="text-white dir-ltr fs-15 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">
+                      <strong>Bachelor of Early Childhood Education</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-10 border-0 break-word w-full"
+            >
+              <tr>
+                <td class="pad pb-1 ps-3 pe-3 pt-1">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">Duke University</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-10 border-0 break-word w-full"
+            >
+              <tr>
+                <td class="pad pb-1 ps-3 pe-3 pt-1">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">08/2067 - 06/2070</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <!-- end of education item -->
+
+            <!-- start of training/course section -->
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-2 border-0 w-auto break-word"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3 pt-4">
+                  <div
+                    class="text-white dir-ltr fs-15 lh-120p font-normal ls-0 text-start"
+                  >
+                    <p class="m-0">
+                      <strong>TRAINING / COURSES</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-3 w-100 border-0"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3">
+                  <div class="alignment">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      class="border-0 w-full"
+                    >
+                      <tr>
+                        <td
+                          class="divider_inner fs-1 border-top border-w-1 border-solid border-gainsboro lh-1"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-17 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-3 pe-3 pt-1">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">Computer Training</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-17 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-3 pe-3 pt-1">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">Hotel Training</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <!-- end of training/course section -->
+
+            <!-- start of awards section -->
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-2 border-0 w-auto break-word"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3 pt-4">
+                  <div
+                    class="text-white dir-ltr fs-15 lh-120p font-normal ls-0 text-start"
+                  >
+                    <p class="m-0">
+                      <strong>AWARDS/ACHIEVEMENT</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-3 w-100 border-0"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3">
+                  <div class="alignment">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      class="border-0 w-full"
+                    >
+                      <tr>
+                        <td
+                          class="divider_inner fs-1 border-top border-w-1 border-solid border-gainsboro lh-1"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="icons_block block-21 border-0 w-full"
+            >
+              <tr>
+                <td
+                  class="pad v-align-middle text-white font-inherit fs-14 font-normal ps-1 pe-1"
+                >
+                  <table cellpadding="0" cellspacing="0" class="w-full">
+                    <tr>
+                      <td class="alignment v-align-middle">
+                        <table
+                          cellpadding="0"
+                          cellspacing="0"
+                          class="icons-inner d-inline-block ps-0 pe-0"
+                          style="margin-right: -4px"
+                        >
+                          <tr>
+                            <td
+                              class="v-align-middle text-center pt-1 pb-1 ps-1 pe-1"
+                            >
+                              <img
+                                class="icon h-auto d-block my-0 mx-auto border-0 w-16"
+                                src="images/icons8-award-50.png"
+                              />
+                            </td>
+                            <td
+                              class="fs-14 font-bold text-white v-align-middle"
+                            >
+                              Awarded
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-22 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pe-3" style="padding-left: 30px">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">
+                      The CEO of Whitney IT company awarded me with this
+                      "Employee of the year" award and increase my salary by
+                      20%.
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- end of award section  -->
+            <!-- start of interest section -->
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-2 border-0 w-auto break-word"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3 pt-4">
+                  <div
+                    class="text-white dir-ltr fs-15 lh-120p font-normal ls-0 text-start"
+                  >
+                    <p class="m-0">
+                      <strong>INTEREST</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-3 w-100 border-0"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3">
+                  <div class="alignment">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      class="border-0 w-full"
+                    >
+                      <tr>
+                        <td
+                          class="divider_inner fs-1 border-top border-w-1 border-solid border-gainsboro lh-1"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-25 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-3 pe-3 pb-1">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">Dancing . Singing . Sports</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <!-- end of interest section -->
+
+            <!-- start of references section -->
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-2 border-0 w-auto break-word"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3 pt-4">
+                  <div
+                    class="text-white dir-ltr fs-15 lh-120p font-normal ls-0 text-start"
+                  >
+                    <p class="m-0">
+                      <strong>REFERENCES</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="divider_block block-3 w-100 border-0"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3">
+                  <div class="alignment">
+                    <table
+                      cellpadding="0"
+                      cellspacing="0"
+                      class="border-0 w-full"
+                    >
+                      <tr>
+                        <td
+                          class="divider_inner fs-1 border-top border-w-1 border-solid border-gainsboro lh-1"
+                        >
+                          <span> </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-28 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-2 ps-3 pe-3 pt-1">
+                  <div
+                    class="text-white dir-ltr fs-15 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">
+                      <strong>Madhav Sirkhanda</strong>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-29 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-3 pe-3 pb-1">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">+ 977 9877566580</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding="0"
+              cellspacing="0"
+              class="paragraph_block block-29 border-0 w-full break-word"
+            >
+              <tr>
+                <td class="pad pb-1 ps-3 pe-3 pb-1">
+                  <div
+                    class="text-white dir-ltr fs-14 font-normal ls-0 lh-120p"
+                  >
+                    <p class="m-0">CEO (Happy Tech Company)</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
